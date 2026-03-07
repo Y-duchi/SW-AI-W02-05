@@ -37,21 +37,37 @@ def is_palindrome(s):
     # TODO: 알파벳과 숫자만 남기고 소문자로 변환하세요
     # 힌트: isalnum() 메서드와 lower() 메서드 사용
     pass
-  
-    result = ""
-    for c in s:
-        if c.isalnum():
-            result += c.lower()
-        continue
     
-    compare = result[::-1]
-    return True if result == compare else False
+    # 방법1: 문자열을 뒤집어서 비교 ([::-1] 사용)
+    # result = ""
+    # for c in s:
+    #     if c.isalnum():
+    #         result += c.lower()
+    #     continue
+    
+    # compare = result[::-1]
+    # return True if result == compare else False
 
     # TODO: 정제된 문자열이 회문인지 확인하세요
-    # 방법1: 문자열을 뒤집어서 비교 ([::-1] 사용)
-    # 방법2: 양 끝 인덱스를 이용한 투 포인터 방식
     pass
     
+    # 방법2: 양 끝 인덱스를 이용한 투 포인터 방식 level
+    
+    result = []
+    for c in s:
+        if c.isalnum():
+            result.append(c.lower())
+
+    start = 0
+    end = len(result)-1
+    for _ in range(int(len(result)/2)):
+        if result[start] == result[end]:
+            start += 1
+            end -= 1
+        else:
+            return False
+    return True
+
     #return False
 
 # 테스트 케이스
