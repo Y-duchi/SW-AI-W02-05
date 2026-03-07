@@ -31,6 +31,7 @@
 - 리스트 컴프리헨션을 사용하면 간결하게 작성할 수 있습니다
 """
 
+
 def find_above_average_students(students):
     """
     평균 점수 이상인 학생들을 찾는 함수
@@ -49,6 +50,18 @@ def find_above_average_students(students):
     
     # TODO: 평균 이상인 학생들의 이름을 리스트로 추출하세요
     pass
+
+   # sc = [85, 92, 78, 95]  
+    sc = []
+    above_average_students = []
+    for student in students:
+        sc.append(student["score"])
+
+    average = sum(sc) / len(sc)
+
+    for s in range(len(sc)):
+        if sc[s] >= average:
+            above_average_students.append(students[s]["name"])
     
     return average, above_average_students
 
