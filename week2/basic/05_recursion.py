@@ -20,9 +20,14 @@
 힌트:
 - 팩토리얼: n! = n × (n-1)!, 0! = 1
 - 피보나치: fib(n) = fib(n-1) + fib(n-2), fib(0) = 0, fib(1) = 1
+
 """
 
 def factorial(n):
+    if n == 1 or n == 0:
+        return 1
+    return n * factorial(n-1)
+    
     """
     재귀를 사용한 팩토리얼 계산
     
@@ -30,7 +35,15 @@ def factorial(n):
         n: 양의 정수
     
     Returns:
-        n의 팩토리얼 값
+    n의 팩토리얼 값
+
+    n = 5
+    n * f(4)
+        n * f(3)
+                n * f(2)
+                    n * f(1)
+                        n * f(0)
+    5  *  4  *  3  * 2 * 1
     """
     # TODO: base case를 작성하세요
     # n이 0이거나 1이면 1을 반환
@@ -38,6 +51,8 @@ def factorial(n):
     
     # TODO: recursive case를 작성하세요
     pass
+
+
 
 def fibonacci(n):
     """
@@ -48,7 +63,23 @@ def fibonacci(n):
     
     Returns:
         n번째 피보나치 수
+
+    n = 3
+    fi(3) = fi(2) + f(1)
+        fi(1)+fi(0)
+        1 +0 + 1 = 2
+    인덱스 3번째 값이 2이다
+    0 1 1 2 3 6 9
     """
+
+    if n == 0 :
+        return 0
+    if n == 1:
+        return 1 
+    
+    return fibonacci(n-1) + fibonacci(n-2)
+
+
     # TODO: base case를 작성하세요
     # n이 0이면 0, n이 1이면 1 반환
     pass
