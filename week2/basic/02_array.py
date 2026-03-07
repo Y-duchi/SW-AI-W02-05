@@ -40,17 +40,33 @@ def rotate_matrix_90(matrix):
     
     Returns:
         회전된 2차원 리스트
+
+    배열을 초기화 시킨후 0부터 ? 까지 j, n-1-i자리에 위치시키기
     """
-    n = len(matrix)
-    
     # TODO: n x n 크기의 새로운 배열을 생성하세요 (0으로 초기화)
     pass
-        
+
+
+    n = len(matrix)
+
+    map = [[0] * n for _ in range(n)]
+    num = 0
+    for x in range(0,n):
+        for y in range(0,n):
+            xm = y
+            ym = n-1-x
+            num += 1
+            map[xm][ym] = num
+   
+
+           
+
+
     # TODO: 원본 배열의 각 요소를 회전된 위치에 배치하세요
     # 힌트: (i, j) 위치의 요소는 회전 후 (j, n-1-i) 위치로 이동
     pass
     
-    return rotated
+    return map
 
 def print_matrix(matrix):
     """배열을 보기 좋게 출력하는 헬퍼 함수"""
