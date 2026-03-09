@@ -52,16 +52,23 @@ def find_above_average_students(students):
     pass
 
    # sc = [85, 92, 78, 95]  
-    sc = []
-    above_average_students = []
-    for student in students:
-        sc.append(student["score"])
+    # sc = []
+    # above_average_students = []
+    # for student in students:
+    #     sc.append(student["score"])
 
+    # average = sum(sc) / len(sc)
+
+    # for s in range(len(sc)):
+    #     if sc[s] >= average:
+    #         above_average_students.append(students[s]["name"])
+
+
+
+    sc = [i["score"] for i in students]
     average = sum(sc) / len(sc)
-
-    for s in range(len(sc)):
-        if sc[s] >= average:
-            above_average_students.append(students[s]["name"])
+    above_average_students = [students[i]["name"] for i in range(len(sc)) if sc[i]>=average]
+    
     
     return average, above_average_students
 

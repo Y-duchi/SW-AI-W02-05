@@ -13,7 +13,7 @@
 - 오름차순으로 정렬된 배열
 
 예제:
-입력: [12, 11, 13, 5, 6]
+입력: [25,35,35,10, 5]
 출력: [5, 6, 11, 12, 13]
 
 힌트:
@@ -32,7 +32,16 @@ def insertion_sort(arr):
     Returns:
         정렬된 배열
     """
-    n = len(arr)
+    n = len(arr) # 5
+
+    for i in range(1, n):
+        pos = i-1 # 0
+        temp = arr[i]  #   15 
+        while pos >= 0 and arr[pos] > temp:
+            arr[pos+1] = arr[pos]
+            pos -= 1
+
+        arr[pos+1] = temp   
     
     # TODO: 두 번째 원소(인덱스 1)부터 시작
     ## 각 원소를 정렬된 부분에 삽입
@@ -62,6 +71,10 @@ def insertion_sort_with_steps(arr):
         # TODO: 삽입 위치 찾기 및 이동
         pass
         
+        while j >= 0 and arr[j] > key:
+            arr[j+1] = arr[j]
+            j -= 1
+
         arr[j + 1] = key
         print(f"삽입 후: {arr}")
     
