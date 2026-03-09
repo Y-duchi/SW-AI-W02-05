@@ -19,7 +19,7 @@ input = sys.stdin.readline
 t = int(input()) # 입력받을 테스트 케이스 수
 
 # 처음 푼 방식
-def sentense(t):
+def sentense1(t):
     for _ in range(t):
         P = []
         r, s = input().split()
@@ -31,7 +31,7 @@ def sentense(t):
         print(''.join(P))
 
 # 두 번째 방식
-def sentense(t):
+def sentense2(t):
     for _ in range(t):
         r, s = input().split()
         r = int(r)
@@ -40,4 +40,5 @@ def sentense(t):
         print(''.join(P))
 
 
-sentense(t)
+sentense1(t)
+sentense2(t)
