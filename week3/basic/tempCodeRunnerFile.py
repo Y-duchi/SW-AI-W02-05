@@ -46,8 +46,6 @@ def merge(arr, left, mid, right):
     
     k = left
     i, j = 0,0
-
-    # 왼쪽 배열과 오른쪽 배열을 비교해서 작은 값을 먼저 arr에 넣는 과정
     while i < len(left_arr) and j < len(right_arr):
         if left_arr[i] < right_arr[j]:
             arr[k] = left_arr[i]
@@ -57,13 +55,11 @@ def merge(arr, left, mid, right):
             arr[k] = right_arr[j]
             j += 1
             k += 1
-
-    # left_arr 에 남은 것 복사
     while i < len(left_arr):
         arr[k] = left_arr[i]
         i += 1
         k += 1
-    # right_arr 에 남은 것 복사
+
     while j < len(right_arr):
         arr[k] = right_arr[j]
         j += 1
