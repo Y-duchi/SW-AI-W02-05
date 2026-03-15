@@ -34,7 +34,7 @@ def divide(arr, target_arr):
                 tf = True
                 print(1)
                 break
-            elif arr[mid] > target: # 3>1
+            elif arr[mid] > target:
                 right = mid -1
             else :
                 left = mid+1
