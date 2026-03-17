@@ -23,15 +23,17 @@ def top():
         while stack and stack[-1][1] < data[i]:
             stack.pop()
 
+        # 스택이 비어있다면, 왼쪽에 더 큰 탑이 없음
         if not stack:
             result.append(0)
+        # 비어있지 않다면, 스택의 마지막 탑이 현재 탑보다 높은 가장 가까운 탑
         else:
             result.append(stack[-1][0]+1)
         
         stack.append((i, data[i]))
 
-    return result
+    print(*result)       # 공백으로 숫자만 출력
         
   
     
-print(top())
+top()
