@@ -44,14 +44,14 @@ def preorder(root):
     result = []
     
     # TODO: root가 None이면 빈 리스트 반환
-    if root is None: 
-        return result
-
-    result.append(root.value)
-    l = preorder(root.left)
-    r = preorder(root.right)
-
-    return result + l + r
+    def bfs(root):
+        if root is None:
+            return result
+        result.append(root.value)
+        bfs(root.left)
+        bfs(root.right)
+    bfs(root)
+    return result
 
 def inorder(root):
     """중위 순회: 왼쪽 → 루트 → 오른쪽"""
