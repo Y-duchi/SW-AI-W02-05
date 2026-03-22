@@ -58,6 +58,8 @@ Hing
 
 # print(jumpking(0,0))
 
+# 내가 처음 짠 코드
+"""
 import sys
 input = sys.stdin.readline
 n = int(input())
@@ -92,3 +94,66 @@ def jumpking(row, col, visited):
 
 
 print(jumpking(0,0, visited))
+"""
+
+# 중복을 줄인 코드 
+"""
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+board = [list(map(int, input().split())) for _ in range(n)]
+visited = [[False] * n for _ in range(n)]
+
+def jumpking(row, col):
+    # 범위 밖이면 실패
+    if not (0 <= row < n and 0 <= col < n):
+        return "Hing"
+
+    start = board[row][col]
+
+    # 도착점이면 성공
+    if start == -1:
+        return "HaruHaru"
+
+    # 이미 방문했으면 실패
+    if visited[row][col]:
+        return "Hing"
+
+    visited[row][col] = True
+
+    right = jumpking(row, col + start, visited)
+    bottom = jumpking(row + start, col, visited)
+
+    if right == "HaruHaru" or bottom == "HaruHaru":
+        return "HaruHaru"
+    return "Hing"
+
+print(jumpking(0, 0))
+"""
+
+# 최적화 코드
+"""
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+board = [list(map(int, input().split())) for _ in range(n)]
+
+def jumpking(row, col):
+    # 범위 밖
+    if row >= n or col >= n:
+        return False
+
+    # 도착
+    if board[row][col] == -1:
+        return True
+
+    jump = board[row][col]
+
+    # 오른쪽 또는 아래 중 하나라도 성공하면 성공
+    return jumpking(row, col + jump) or jumpking(row + jump, col)
+
+print("HaruHaru" if jumpking(0, 0) else "Hing")
+
+"""
