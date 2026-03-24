@@ -24,7 +24,8 @@
 """
 
 """
-[[],
+[
+[],
 [2,5],
 [3],
 [],
@@ -44,9 +45,9 @@ for i in range(e):
     graph[a].append(b)
     graph[b].append(a)
   
-visited = [False] * len(graph)
+bfs_visited = [False] * len(graph)
 
-
+# bfs 큐 풀이
 def bfs(graph, start, visited):
     result = []
     queue = deque([start])
@@ -61,6 +62,39 @@ def bfs(graph, start, visited):
                 visited[i] = True
     return len(result) - 1
 
+dfs_visited = [False] * len(graph)
 
+# dfs 스택 풀이
+def dfs_stack(graph, start, visited):
+    result = []
+    stack = []
+    stack.append(start)
+    visited[start] = True
 
-print(bfs(graph, 1, visited))
+    count = 0
+    while stack:
+        x = stack.pop()
+        result.append(x)
+        for i in graph[x]:
+            if not visited[i]:
+                stack.append(i)
+                visited[i] = True
+                count += 1
+    return count
+
+# dfs 재귀 풀이
+visited = [False] * len(graph)
+def dfs_recursion(start):
+    visited[start] = True
+    count = 0
+
+    for i in graph[start]:
+        if not visited[i]:
+            count += 1
+            count += dfs_recursion(i)
+            
+    return count
+
+print(bfs(graph, 1, bfs_visited))
+print(dfs_stack(graph, 1, dfs_visited))
+print(dfs_recursion(1))
