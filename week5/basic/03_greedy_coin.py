@@ -43,11 +43,19 @@ def make_change_greedy(change, coins):
     result = {}
     total_coins = 0
     
+    # 가장 큰 동전먼저 사용
+    coins.sort(reverse=True)
     # TODO: 각 동전에 대해 반복
     ## 현재 동전으로 거슬러줄 수 있는 개수 계산    
     ## 개수가 0보다 크면 결과에 추가
-    pass
-    
+
+    for c in coins:
+        k = change // c     # 1260 // 500 -> 2   
+        change = change % c # 500 으로 나눈 나머지
+        if k > 0:
+            result[c] = k      # 500 원 2개
+        total_coins += k
+
     return total_coins, result
 
 # 테스트 케이스
